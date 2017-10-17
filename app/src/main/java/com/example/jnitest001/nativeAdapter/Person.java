@@ -1,15 +1,17 @@
-package com.inpor.jnitest001.nativeAdapter;
+package com.example.jnitest001.nativeAdapter;
+
+import android.util.Log;
 
 /**
  * Created by xieqe on 2017/10/16.
  */
 
 public class Person {
-    public String name;
-    public int num;
-    public long id;
-    public boolean isMale;
-    public Skill skill;
+    public String name = "xqe";
+    public int num = 0;
+    public long id = 0;
+    public boolean isFeMale = false;
+    public static String infoStr = "pserson";
 
     public String getName() {
         return name;
@@ -36,29 +38,28 @@ public class Person {
     }
 
     public boolean isMale() {
-        return isMale;
+        return isFeMale;
     }
 
-    public void setMale(boolean male) {
-        isMale = male;
-    }
-
-    public Skill getSkill() {
-        return skill;
-    }
-
-    public void setSkill(Skill skill) {
-        this.skill = skill;
+    public void setFeMale(boolean male) {
+        isFeMale = male;
     }
 
     @Override
     public String toString() {
-        return "Person{" +
+
+        String str = "Person{" +
                 "name='" + name + '\'' +
                 ", num=" + num +
                 ", id=" + id +
-                ", isMale=" + isMale +
-                ", skill=" + skill.getSkill() +
+                ", isMale=" + isFeMale +
                 '}';
+        Log.i("Person", "toString: " + str);
+        return str;
+    }
+
+    public static void showInfo(){
+        String str = "Person================";
+        Log.e("Person", "toString: " + str);
     }
 }

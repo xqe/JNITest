@@ -1,6 +1,6 @@
-D:/android/test_workspace/JNITest001/app/obj/local/armeabi/objs/printcpp/PrintCpp.o: \
- D:/android/test_workspace/JNITest001/app/jni/PrintCpp.cpp \
- D:/android/test_workspace/JNITest001/app/jni/PrintCpp.h \
+D:/android/test_workspace/JNITest001/JNITest/app/obj/local/armeabi/objs/printcpp/PrintCpp.o: \
+ D:/android/test_workspace/JNITest001/JNITest/app/jni/PrintCpp.cpp \
+ D:/android/test_workspace/JNITest001/JNITest/app/jni/PrintCpp.h \
  D:/android/ndk-bundle/platforms/android-19/arch-arm/usr/include/jni.h \
  D:/android/ndk-bundle/platforms/android-19/arch-arm/usr/include/sys/cdefs.h \
  D:/android/ndk-bundle/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h \
@@ -26,7 +26,7 @@ D:/android/test_workspace/JNITest001/app/obj/local/armeabi/objs/printcpp/PrintCp
  D:/android/ndk-bundle/platforms/android-19/arch-arm/usr/include/memory.h \
  D:/android/ndk-bundle/platforms/android-19/arch-arm/usr/include/stdio.h
 
-D:/android/test_workspace/JNITest001/app/jni/PrintCpp.h:
+D:/android/test_workspace/JNITest001/JNITest/app/jni/PrintCpp.h:
 
 D:/android/ndk-bundle/platforms/android-19/arch-arm/usr/include/jni.h:
 

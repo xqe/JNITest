@@ -1,4 +1,4 @@
-package com.inpor.jnitest001;
+package com.example.jnitest001;
 
 import org.junit.Test;
 
