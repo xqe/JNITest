@@ -1,5 +1,7 @@
 package com.example.jnitest001.nativeclass;
 
+import android.util.Log;
+
 import com.example.jnitest001.nativeAdapter.NativeListener;
 import com.example.jnitest001.nativeAdapter.Person;
 
@@ -13,7 +15,15 @@ public class PrintCpp {
     }
     public native String print();
 
-    public static native boolean setPersonInfo(Person person);
+    public native boolean setPersonInfo(Person person);
+
+    public static native Person getPerson();
 
     public native void addListener(NativeListener listener);
+
+    public void test(){
+        Log.e("PrintCpp", "test: PrintCpp=====PrintCpp");
+    }
+
+    public native void destory();
 }

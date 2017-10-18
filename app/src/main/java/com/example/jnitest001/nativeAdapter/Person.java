@@ -13,6 +13,10 @@ public class Person {
     public boolean isFeMale = false;
     public static String infoStr = "pserson";
 
+    public Person(){
+
+    }
+
     public String getName() {
         return name;
     }
@@ -54,12 +58,16 @@ public class Person {
                 ", id=" + id +
                 ", isMale=" + isFeMale +
                 '}';
-        Log.i("Person", "toString: " + str);
+        Log.e("Person", "toString: " + str);
         return str;
     }
 
     public static void showInfo(){
         String str = "Person================";
         Log.e("Person", "toString: " + str);
+    }
+
+    public void show(){
+        Log.e("Person", "show: " + this.toString() );
     }
 }

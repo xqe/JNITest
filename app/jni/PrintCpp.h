@@ -8,11 +8,13 @@
 #include <jni.h>
 
 jstring PrintCpp_print(JNIEnv* env,jobject obj);
-static jboolean PrintCpp_setPersonInfo(JNIEnv* env,jobject obj,jobject databean);
+jboolean PrintCpp_setPersonInfo(JNIEnv* env,jobject obj,jobject databean);
 void PrintCpp_setListener(JNIEnv* env,jobject obj,jobject listener);
+void PrintCpp_destory(JNIEnv* env,jobject obj);
+static jobject PrintCpp_getPerson(JNIEnv* env,jobject obj);
 
 void onSuccess(JNIEnv* env);
 void onFailed(JNIEnv* env);
 
-jclass nativeListener;
+jobject nativeListener;
 #endif //JNITEST001_JNI_PRINTCPPSTRING_H

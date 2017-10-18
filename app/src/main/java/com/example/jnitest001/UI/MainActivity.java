@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity implements NativeListener{
     private static final String TAG = "MainActivity";
     @Bind(R.id.textView)
     TextView textView;
+
+    PrintCpp printCpp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,21 +30,24 @@ public class MainActivity extends AppCompatActivity implements NativeListener{
     }
 
     public void testJNI(){
+        printCpp = new PrintCpp();
+        printCpp.addListener(MainActivity.this);
+        String result = printCpp.print();
+        textView.setText(result);
+        Log.i(TAG, "testJNI: " + result);
         new Thread(){
             @Override
             public void run() {
                 super.run();
-                PrintCpp printCpp = new PrintCpp();
-                printCpp.addListener(MainActivity.this);
-                String result = printCpp.print();
-                textView.setText(result);
-                Log.i(TAG, "testJNI: " + result);
                 Person person = new Person();
                 person.setName("xqe");
                 person.setNum(123);
                 person.setFeMale(true);
                 person.setId(123456789);
-                boolean isSuccess = PrintCpp.setPersonInfo(person);
+                boolean isSuccess = printCpp.setPersonInfo(person);
+
+                Person personNative = PrintCpp.getPerson();
+                personNative.toString();
                 Log.i(TAG, "testJNI: " + isSuccess);
             }
         }.start();
@@ -51,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements NativeListener{
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        printCpp.destory();
         ButterKnife.unbind(this);
     }
 
