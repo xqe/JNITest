@@ -53,7 +53,7 @@ jstring PrintCpp_print(JNIEnv* env,jobject obj)
     jstring str = env->NewStringUTF("string from cpp");
     const char* p = env->GetStringUTFChars(str,0);
     LOGE("PrintCpp_print:%s",p);
-    //env->DeleteLocalRef(str);
+    //env->DeleteLocalRef(str);//NewStringUTF jstring is a local variable,release automatically
     return str;
 }
 
@@ -69,6 +69,7 @@ jboolean PrintCpp_setPersonInfo(JNIEnv* env,jobject obj,jobject personInfo)
 	jfieldID nameID = env->GetFieldID(clazz, "name", "Ljava/lang/String;");
 	jstring name =(jstring)env->GetObjectField(personInfo,nameID);
     const char* nameData = env->GetStringUTFChars(name,0);
+    env->DeleteLocalRef(name);
 	LOGE("PrintCpp_setPersonInfo:%s",nameData);
 
 	//get num
