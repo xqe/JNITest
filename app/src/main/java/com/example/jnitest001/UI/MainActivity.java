@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.example.jnitest001.R;
 import com.example.jnitest001.nativeAdapter.NativeListener;
 import com.example.jnitest001.nativeAdapter.Person;
-import com.example.jnitest001.nativeclass.PrintCpp;
+import com.example.jnitest001.nativeClass.PrintCpp;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -35,23 +35,16 @@ public class MainActivity extends AppCompatActivity implements NativeListener{
         String result = printCpp.print();
         textView.setText(result);
         Log.i(TAG, "testJNI: " + result);
-        new Thread(){
-            @Override
-            public void run() {
-                super.run();
-                Person person = new Person();
-                person.setName("xqe");
-                person.setNum(123);
-                person.setFeMale(true);
-                person.setId(123456789);
-                boolean isSuccess = printCpp.setPersonInfo(person);
+        Person person = new Person();
+        person.setName("xqe");
+        person.setNum(123);
+        person.setFeMale(true);
+        person.setId(123456789);
+        boolean isSuccess = printCpp.setPersonInfo(person);
 
-                Person personNative = PrintCpp.getPerson();
-                personNative.toString();
-                Log.i(TAG, "testJNI: " + isSuccess);
-            }
-        }.start();
-
+        Person personNative = PrintCpp.getPerson();
+        personNative.toString();
+        Log.i(TAG, "testJNI: " + isSuccess);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.jnitest001.nativeclass;
+package com.example.jnitest001.nativeClass;
 
 import android.util.Log;
 
@@ -22,7 +22,7 @@ public class PrintCpp {
     public native void addListener(NativeListener listener);
 
     public void test(){
-        Log.e("PrintCpp", "test: PrintCpp=====PrintCpp");
+        Log.e("PrintCpp", "native call");
     }
 
     public native void destory();

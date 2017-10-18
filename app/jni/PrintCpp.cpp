@@ -42,7 +42,7 @@ extern "C"{
         }
 
 		jniRegisterNativeMethods(
-			pEnv, "com/example/jnitest001/nativeclass/PrintCpp", methods_PrintCpp, sizeof(methods_PrintCpp) / sizeof(methods_PrintCpp[0]));
+			pEnv, "com/example/jnitest001/nativeClass/PrintCpp", methods_PrintCpp, sizeof(methods_PrintCpp) / sizeof(methods_PrintCpp[0]));
 
         return JNI_VERSION_1_4;
     }

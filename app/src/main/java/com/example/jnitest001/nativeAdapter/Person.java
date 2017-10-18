@@ -63,8 +63,7 @@ public class Person {
     }
 
     public static void showInfo(){
-        String str = "Person================";
-        Log.e("Person", "toString: " + str);
+        Log.e("Person", "native call static method");
     }
 
     public void show(){
