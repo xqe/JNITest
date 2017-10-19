@@ -15,6 +15,8 @@ static jobject PrintCpp_getPerson(JNIEnv* env,jobject obj);
 
 void onSuccess(JNIEnv* env);
 void onFailed(JNIEnv* env);
+void throwException(JNIEnv* env);
+void dealException(JNIEnv* env);
 
 jobject nativeListener;
 #endif //JNITEST001_JNI_PRINTCPPSTRING_H

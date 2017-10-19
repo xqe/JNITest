@@ -21,9 +21,13 @@ public class PrintCpp {
 
     public native void addListener(NativeListener listener);
 
+    public native void destory();
+
     public void test(){
         Log.e("PrintCpp", "native call");
     }
 
-    public native void destory();
+    public static void throwException(){
+        throw new NullPointerException("NullPointerException for test in java");
+    }
 }

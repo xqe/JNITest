@@ -132,6 +132,7 @@ static jobject PrintCpp_getPerson(JNIEnv* env,jobject obj)
 void PrintCpp_setListener(JNIEnv* env,jobject obj,jobject listener)
 {
     nativeListener = env->NewGlobalRef(listener);
+    dealException(env);
 }
 
 void PrintCpp_destory(JNIEnv* env,jobject obj)
@@ -153,4 +154,29 @@ void onFailed(JNIEnv* env)
     jmethodID failedID = env->GetMethodID(clazz,"onFailed","()V");
     env->CallVoidMethod(nativeListener,failedID);
 }
+
+void throwException(JNIEnv* env)
+{
+    //test throw Exception
+    jclass clazz = env->FindClass("java/lang/NullPointerException");
+    if(clazz != NULL)
+    {
+        env->ThrowNew(clazz,"NullPointerException throwed by JNI");
+    }
+}
+
+void dealException(JNIEnv* env)
+{
+    //call an exceptionMethod for test
+    jclass clazz = env->FindClass("com/example/jnitest001/nativeClass/PrintCpp");
+    env->CallStaticVoidMethod(clazz,env->GetStaticMethodID(clazz,"throwException","()V"));
+    jthrowable ex = env->ExceptionOccurred();
+    if(0!=ex)
+    {
+        env->ExceptionClear();
+        LOGE("catch exception from java");
+    }
+}
+
+
 
