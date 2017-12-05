@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.example.jnitest001.R;
 import com.example.jnitest001.nativeAdapter.NativeListener;
 import com.example.jnitest001.nativeAdapter.Person;
+import com.example.jnitest001.nativeClass.CmakeTest;
 import com.example.jnitest001.nativeClass.PrintCpp;
 
 import butterknife.Bind;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements NativeListener{
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         testJNI();
+        testCmake();
     }
 
     public void testJNI(){
@@ -45,6 +47,11 @@ public class MainActivity extends AppCompatActivity implements NativeListener{
         Person personNative = PrintCpp.getPerson();
         personNative.toString();
         Log.i(TAG, "testJNI: " + isSuccess);
+    }
+
+    public void testCmake(){
+        CmakeTest cmakeTest = new CmakeTest();
+        cmakeTest.PrintLogFromCpp();
     }
 
     @Override

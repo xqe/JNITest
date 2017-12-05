@@ -3,17 +3,12 @@
 // Created by xieqe on 2017/12/4.
 //
 
-#define LOG_TAG "XQE_JNI"
-#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
-#define LOGI(...) __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
-
 extern "C"{
 
-
 JNINativeMethod methods_printString[] =
-        {
-                {"PrintLogFromCpp","()V;",(void*) printString}
-        };
+{
+    {"PrintLogFromCpp","()V",(void*) printString}
+};
 
 int jniRegisterNativeMethods(JNIEnv* env,const char* className,const JNINativeMethod* gMethods,int numMethods)
 {
@@ -30,6 +25,8 @@ jint JNI_OnLoad(JavaVM* vm,void* reserved)
     //get JNI version
     if ( vm->GetEnv((void**)&pEnv, JNI_VERSION_1_4) != JNI_OK)
     {
+
+        LOGE("JNI_OnLoad error");
         return JNI_ERR;
     }
 
@@ -40,7 +37,7 @@ jint JNI_OnLoad(JavaVM* vm,void* reserved)
 }
 }
 
-void printString()
+void printString(JNIEnv* env,jobject obj)
 {
 	LOGE("log from cpp");
 }

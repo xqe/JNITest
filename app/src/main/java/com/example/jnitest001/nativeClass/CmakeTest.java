@@ -6,7 +6,7 @@ package com.example.jnitest001.nativeClass;
 
 public class CmakeTest {
     static{
-        System.loadLibrary("cmake-lib");
+        System.loadLibrary("cmake_test_lib");
     }
 
     public native void PrintLogFromCpp();
